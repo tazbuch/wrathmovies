@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wrath.lol</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .banner {
+            background-color: gray;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+        }
+        .banner .left-text {
+            display: flex;
+            align-items: center;
+        }
+        .banner .left-text .big-text {
+            font-size: 2em;
+            margin-right: 10px;
+        }
+        .banner .left-text .small-text {
+            font-size: 1.5em;
+        }
+        .banner .banner-image {
+            display: block;
+            margin: 0 auto;
+            max-width: 50px;
+            max-height: 50px;
+        }
+        .banner .button {
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1em;
+            border-radius: 5px;
+        }
+        .content {
+            background-color: black;
+            text-align: center;
+            padding: 20px;
+        }
+        .content img {
+            width: 200px;
+            height: auto;
+        }
+        .content .image-caption {
+            background-color: white;
+            color: black;
+            display: inline-block;
+            padding: 5px 10px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+            position: relative;
+        }
+        .close-button {
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="left-text">
+            <div class="big-text">wrath.lol</div>
+            <div class="small-text">its fun!</div>
+        </div>
+        <img class="banner-image" src="https://cdn.discordapp.com/attachments/1247406164522569768/1247406224220356659/standard.gif?ex=665fe913&is=665e9793&hm=e3881c138e0cfa22c20f46d475355b94d17f824113a34fcbfb1f13ade1d5d3c7&" alt="Banner Image">
+        <a href="https://wrath.lol/request.html/" class="button">request a movie/show you want</a>
+    </div>
+    <div class="content">
+        <img src="https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p17735_p_v8_aj.jpg" alt="Icon">
+        <div class="image-caption" onclick="openModal()">click to watch</div>
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <button class="close-button" onclick="closeModal()">X</button>
+            <iframe id="videoIframe" src="https://vidsrc.to/embed/movie/tt0116483" allowfullscreen></iframe>
+        </div>
+    </div>
+    <script>
+        function openModal() {
+            document.getElementById('myModal').style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = "none";
+            var iframe = document.getElementById('videoIframe');
+            var src = iframe.src;
+            iframe.src = '';
+            iframe.src = src;
+        }
+    </script>
+</body>
+</html>
